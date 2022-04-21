@@ -5,31 +5,34 @@ const styles = StyleSheet.create({
         flexGrow:1,
         justifyContent: 'center',
         padding: 32,
+        backgroundColor: '#B0E0E6',
         
     },
     Input:{
         fontSize : 24,
-        borderWidth:2,
+        borderWidth:1,
+        backgroundColor: '#F5FFFA',
+        
     },
     linkNovoUsuario:{
         padding:5,
         alignItems:'center',
-        borderWidth:1,
-        backgroundColor: '#',
     },
     Button:{
-        backgroundColor: '#cc0',
+        backgroundColor: '#C0C0C0',
         alignItems:'center',
-        borderWidth:2,
+        borderWidth:1,
         padding:10,
+        borderRadius:8
     },
 
     MansagemDeerror:{
-        borderWidth:3,
         textTransform:'uppercase',
+        alignItems:'center',
+       
     },
     MansagemDesucesso:{
-        borderWidth:3,
+        
         textTransform:'uppercase',
     }
 }) 
@@ -64,7 +67,7 @@ return(
         <TextInput style={styles.Input}placeholder="nome do usuario" onChangeText={setnomeUsuario}/>
 
         <TextInput style={styles.Input}placeholder='senha'onChangeText={setsenha}/> 
-        
+
         <TouchableOpacity
       style={styles.Button}
        onPress={botaoLoginPressionado }>

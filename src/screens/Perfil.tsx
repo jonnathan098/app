@@ -30,7 +30,7 @@ const style = StyleSheet.create({
     Alert.alert ('Botao Pressionado')
   }
 
-const MainScreen: React.FC = () => {
+const perfilScreen: React.FC = () => {
     return(
         <View style={style.container}>
       <Text style={style.mensagem}>alo, munto!</Text>
@@ -41,4 +41,4 @@ const MainScreen: React.FC = () => {
       
     )
 }
-export default MainScreen
+export default perfilScreen
