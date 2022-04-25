@@ -5,7 +5,8 @@ import TelaPricipal from './src/screens/TelaPricipal';
 
 const app: React.FC = () => {
   return(
-    
+   // <PerfilScreen/>
+   // <LoginScreen/>
     <TelaPricipal/>
     );
   };
