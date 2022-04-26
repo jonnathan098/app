@@ -7,16 +7,19 @@ import PerfilScreen from './src/screens/Perfil';
 import TelaPricipal from './src/screens/TelaPricipal';
 
 
-const Stack = createNativeStackNavigator();
 
 const app: React.FC = () => {
+  const Stack = createNativeStackNavigator();
+
   return(
-    <NavigationContainer>{}</NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="logim" component={LoginScreen} />
+        <Stack.Screen name="Perfl" component={PerfilScreen} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
-
-
 export default app;
-
-
