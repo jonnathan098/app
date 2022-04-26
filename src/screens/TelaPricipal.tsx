@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, ListRenderItem, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Item from './models/Item';
 
 const itens: Item[] = [
@@ -139,7 +139,6 @@ const itens: Item[] = [
 		descriçao: 'Lanche grande.',
 	},
 ]
-
 const styles = StyleSheet.create({
 	listItem: {
 		backgroundColor: '#ff0',
@@ -150,10 +149,17 @@ const styles = StyleSheet.create({
 	listItemText: {
 		fontSize: 24,
 	},
+
+	botao:{
+		fontSize : 24,
+        borderWidth:1,
+        backgroundColor: '#2E8B57',
+        borderRadius:8,
+		alignItems: 'center',
+
+	}
 })
-
 const TelaPricipal: React.FC = () => {
-
 	const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
 		return (
 			<View style={styles.listItem}>
@@ -161,15 +167,15 @@ const TelaPricipal: React.FC = () => {
 			</View>
 		)
 	}
-
 	return (
 		<View>
-			<FlatList
-				renderItem={renderFlatListItem}
-				data={itens}
-			/>
+			<FlatList renderItem={renderFlatListItem} data={itens}/>
+			<View>
+				<TouchableOpacity style={styles.botao} onPress={() => {}}>
+				<Text>cria novo componede</Text>
+				</TouchableOpacity>
+	        </View>
 		</View>
 	)
 }
-
 export default TelaPricipal
