@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
         padding:5,
         alignItems:'center',
     },
+    buttonTextLinkeNovoUsuario:{
+        color:'#0000FF',
+    },
     Button:{
         backgroundColor: '#C0C0C0',
         alignItems:'center',
@@ -25,7 +28,10 @@ const styles = StyleSheet.create({
         padding:10,
         borderRadius:8
     },
-
+    buttonText:{
+        color:'#fff',
+        fontSize : 24,
+    },
     MansagemDeerror:{
         textTransform:'uppercase',
         alignItems:'center',
@@ -71,13 +77,13 @@ return(
         <TouchableOpacity
       style={styles.Button}
        onPress={botaoLoginPressionado }>
-       <Text>entrar</Text>
+       <Text style={styles.buttonText}>entrar</Text>
       </TouchableOpacity>
 
        <TouchableOpacity
       style={styles.linkNovoUsuario}
        onPress={() => {}}>
-       <Text>novo usuario</Text>
+       <Text style={styles.buttonTextLinkeNovoUsuario}>novo usuario</Text>
       </TouchableOpacity>
     </View>
 )
