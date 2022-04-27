@@ -1,5 +1,7 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import React, { useState } from "react" 
 import { TextInput, View,StyleSheet, Button, TouchableOpacity,Text, } from "react-native"
+import { StackParams } from "./Navegacao"
 const styles = StyleSheet.create({
     container:{
         flexGrow:1,
@@ -41,7 +43,10 @@ const styles = StyleSheet.create({
         textTransform:'uppercase',
     }
 }) 
-const LoginScreen: React.FC = () => {
+
+type Props = NativeStackScreenProps<StackParams,'Login'>;
+
+const LoginScreen: React.FC<Props> = (props) => {
 const [MansagemDeerror, setMansagemDeerror] = useState(false)
 const [MansagemDesucesso, setMansagemDesucesso] = useState(false)
 const [nomeUsuario, setnomeUsuario] = useState('')
@@ -52,6 +57,7 @@ const botaoLoginPressionado = () => {
     if (nomeUsuario==='adm' && senha === '123') {
         setMansagemDesucesso(true)
         setMansagemDeerror(false)
+        props.navigation.navigate('Perfil');
     } else {
         setMansagemDeerror(true)
     }

@@ -9,16 +9,19 @@ const Navegacao: React.FC =() => {
     return(
         <NavigationContainer>
         <Stack.Navigator>
-         <Stack.Screen name="login" component={LoginScreen} />
-          <Stack.Screen name="Perfl" component={PerfilScreen} />
+         <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Perfil" component={PerfilScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
 };
  
-type StackParams ={
-
+type StackParams = {
+    Perfil: undefined,
+    Login: undefined,
 };
 
 
+
 export default Navegacao
+export type{ StackParams};
