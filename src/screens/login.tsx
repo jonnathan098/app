@@ -1,5 +1,5 @@
-import { TextInput, View,StyleSheet, Button, TouchableOpacity,Text } from "react-native"
 import React, { useState } from "react" 
+import { TextInput, View,StyleSheet, Button, TouchableOpacity,Text, } from "react-native"
 const styles = StyleSheet.create({
     container:{
         flexGrow:1,
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
        
     },
     MansagemDesucesso:{
-        
         textTransform:'uppercase',
     }
 }) 
@@ -70,19 +69,16 @@ return(
          <Text style={styles.MansagemDesucesso}>suceso: Bem Vindo</Text>
          )
         }
+       
         <TextInput style={styles.Input}placeholder="nome do usuario" onChangeText={setnomeUsuario}/>
 
         <TextInput style={styles.Input}placeholder='senha'onChangeText={setsenha}/> 
 
-        <TouchableOpacity
-      style={styles.Button}
-       onPress={botaoLoginPressionado }>
+        <TouchableOpacity style={styles.Button}onPress={botaoLoginPressionado }>
        <Text style={styles.buttonText}>entrar</Text>
       </TouchableOpacity>
 
-       <TouchableOpacity
-      style={styles.linkNovoUsuario}
-       onPress={() => {}}>
+       <TouchableOpacity style={styles.linkNovoUsuario}onPress={() => {}}>
        <Text style={styles.buttonTextLinkeNovoUsuario}>novo usuario</Text>
       </TouchableOpacity>
     </View>
