@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image, Alert } from 'react-native';
 import  image from '../../assets/download.jfif.png';
 import { Button } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { StackParams } from './Navegacao';
 
 const style = StyleSheet.create({
     container: {
@@ -25,12 +27,11 @@ const style = StyleSheet.create({
     },
     
   })
-
-  const botaoPressionado = () =>{
-    Alert.alert ('Botao Pressionado')
+  type Props = NativeStackScreenProps<StackParams,'Perfil'>;
+const perfilScreen: React.FC <Props> = (Props) => {
+   const botaoPressionado = () =>{
+    Props.navigation.navigate('TelaPricipal');
   }
-
-const perfilScreen: React.FC = () => {
     return(
         <View style={style.container}>
       <Text style={style.mensagem}>alo, munto!</Text>

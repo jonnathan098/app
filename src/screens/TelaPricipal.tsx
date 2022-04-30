@@ -1,6 +1,8 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Item from './models/Item';
+import { StackParams } from './Navegacao';
 
 const itens: Item[] = [
 	{
@@ -159,14 +161,19 @@ const styles = StyleSheet.create({
 
 	}
 })
-const TelaPricipal: React.FC = () => {
-	const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
-		return (
+type Props = NativeStackScreenProps<StackParams,'TelaPricipal'>;
+
+const TelaPricipalScreen: React.FC <Props> = (Props) => {
+	 	const botaoLoginPressionado = () => {
+		Props.navigation.navigate('PaginaItem');
+	}
+		const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
+			return (
 			<View style={styles.listItem}>
 				<Text style={styles.listItemText}>{item.nome}</Text>
 			</View>
 		)
-	}
+		}
 	return (
 		<View>
 			<FlatList renderItem={renderFlatListItem} data={itens}/>
@@ -174,8 +181,11 @@ const TelaPricipal: React.FC = () => {
 				<TouchableOpacity style={styles.botao} onPress={() => {}}>
 				<Text>cria novo componede</Text>
 				</TouchableOpacity>
+				<TouchableOpacity style={styles.botao}onPress={botaoLoginPressionado}>
+       			<Text>novo usuario</Text>
+      			</TouchableOpacity>
 	        </View>
 		</View>
 	)
 }
-export default TelaPricipal
+export default TelaPricipalScreen
