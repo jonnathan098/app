@@ -9,8 +9,9 @@ const style = StyleSheet.create({
     container: {
       flexGrow:1,
       backgroundColor: '#bb0',
-      justifyContent: 'center',
-      alignItems: 'center',
+     // justifyContent: 'center',
+     // alignItems: 'center',
+
   
     },
     
@@ -24,6 +25,17 @@ const style = StyleSheet.create({
       height:200,
       borderRadius:100,
       marginTop:20,
+      alignItems: 'flex-start',
+      
+    },
+    perfil:{
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'flex-start',
+      backgroundColor:'#fff'
+    },
+    button:{
+      alignSelf:'center',
     },
     
   })
@@ -33,13 +45,16 @@ const perfilScreen: React.FC <Props> = (Props) => {
     Props.navigation.navigate('TelaPricipal');
   }
     return(
-        <View style={style.container}>
-      <Text style={style.mensagem}>alo, munto!</Text>
-      <Text>o mundo conhecerá a dor</Text>
+     <View style={style.container}>
+       <View style={style.perfil}>
       <Image style={style.image} source={image}/>
-      <Button title='supera' onPress={botaoPressionado} />
+      <View>
+        <Text style={style.mensagem}>bem vindo!</Text>
+        <Text>tudo bem !</Text>
+      </View>
+      </View>
+      <Button title='supera' style={style.button} onPress={botaoPressionado} />
     </View>
-      
     )
 }
 export default perfilScreen

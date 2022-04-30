@@ -169,9 +169,9 @@ const TelaPricipalScreen: React.FC <Props> = (Props) => {
 	}
 		const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
 			return (
-			<View style={styles.listItem}>
+			<TouchableOpacity style={styles.listItem} onPress={botaoLoginPressionado}>
 				<Text style={styles.listItemText}>{item.nome}</Text>
-			</View>
+			</TouchableOpacity>
 		)
 		}
 	return (
@@ -181,9 +181,6 @@ const TelaPricipalScreen: React.FC <Props> = (Props) => {
 				<TouchableOpacity style={styles.botao} onPress={() => {}}>
 				<Text>cria novo componede</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.botao}onPress={botaoLoginPressionado}>
-       			<Text>novo usuario</Text>
-      			</TouchableOpacity>
 	        </View>
 		</View>
 	)
