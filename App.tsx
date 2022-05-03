@@ -4,8 +4,8 @@ import Navegacao from './src/screens/Navegacao';
 
 const app: React.FC = () => {
   return(
-   <Navegacao/>
-  // <PaginaItem/>
+  <Navegacao/>
+  //<PaginaItem/>
   );
 };
 export default app;

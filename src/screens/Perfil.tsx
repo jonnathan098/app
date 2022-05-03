@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image, Alert } from 'react-native';
+import { StyleSheet, Text, View,Image, Alert} from 'react-native';
 import  image from '../../assets/download.jfif.png';
 import { Button } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';

@@ -1,6 +1,7 @@
-import { View , Text, StyleSheet,Image, Button, Alert, TextInput, TouchableOpacity, } from "react-native"
-import  image from '../../assets/download.jfif.png';
+import { View , Text, StyleSheet,Image, Button, Alert, TextInput, TouchableOpacity } from "react-native"
 import React from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { StackParams } from "./Navegacao";
 
 const style = StyleSheet.create ({
     pagina:{
@@ -13,10 +14,12 @@ const style = StyleSheet.create ({
         fontSize : 24,
         borderWidth:1,
         backgroundColor: '#F5FFFA',
+        width:300,
+        height:100,
         
     },
     item1:{
-        fontSize : 24,
+        fontSize: 24,
         borderWidth:1,
         backgroundColor: '#B0C4DE',
         borderRadius:8,
@@ -36,8 +39,9 @@ const style = StyleSheet.create ({
         marginTop:30,
     },
     buttonEdidar:{
-        backgroundColor: '#32CD32',
+        backgroundColor: '#000000',
         alignItems:'center',
+        color:'#FF0000',
         borderWidth:1,
         width:90,
         height:25,
@@ -48,25 +52,13 @@ const style = StyleSheet.create ({
 
     },
 })
-const botaoPressionado = () =>{
-    Alert.alert ('Botao Pressionado')
-  }
-const PaginaItem: React.FC = () =>{
+type Props = NativeStackScreenProps<StackParams,'PaginaItem'>;
+const PaginaItem: React.FC <Props> = (props) =>{
+    const item = props.route.params.item;
     return(
         <View style={style.pagina}>
-           <Image style={style.imagemItem} source={image}/>
-            <Text style={style.item1}>imagem supera</Text>
-            <Text style={style.descriçaoDoItem1}>uma imagem antiga que foi perdida com o tempo , foi visdo por ultimo turamde a descoperda do novo mundo por portugesse da renasesa</Text>
-            <TouchableOpacity style={style.buttonEdidar}onPress={() => {}}>
-                <Text  style={style.TextButton}>EDIDAR</Text>
-             </TouchableOpacity>
-            <Button title='edidar' onPress={botaoPressionado}/>
-            <View>
-                <TextInput style={style.Input}placeholder="escreva"/>
-                <Button title='salvar' onPress={botaoPressionado}/>
-            </View>
+            <Text>{item.descriçao}</Text> 
         </View>
-       
     );
 };
 export default PaginaItem

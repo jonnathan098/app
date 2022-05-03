@@ -1,155 +1,82 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import item from './item';
 import Item from './models/Item';
 import { StackParams } from './Navegacao';
 
 const itens: Item[] = [
 	{
 		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
+		nome: 'Itachi Uchiha',
+		descriçao: 'clã Uchiha de Konoha',
 	},
 	{
 		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
+		nome: 'Nagato',
+		descriçao: 'um órfão de Amegakure',
 	},
 	{
 		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
+		nome: 'Deidara',
+		descriçao: 'Unidade de Explosão',
 	},
 	{
 		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
+		nome: 'Obito Uchiha',
+		descriçao: ' clã Uchiha de Konoha.',
 	},
 	{
 		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
+		nome: 'Hidan',
+		descriçao: 'Yugakure',
 	},
 	{
 		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
+		nome: 'Zetsu',
+		descriçao: 'Exército de Zetsu Branco,',
 	},
 	{
 		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
+		nome: 'Kisame Hoshigaki',
+		descriçao: 'Monstro da Névoa Oculta ',
 	},
 	{
 		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
+		nome: 'Kakuzu',
+		descriçao: ' Takigakure',
 	},
 	{
 		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
+		nome: 'Sasori',
+		descriçao: 'era um shinobi de Sunagakure ',
 	},
 	{
 		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
+		nome: 'Konan',
+		descriçao: ' kunoichi de Amegakure',
 	},
 	{
 		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
+		nome: 'Orochimaru',
+		descriçao: ' Lendários Sannin,',
 	},
 	{
 		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
-	},
-	{
-		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
-	},
-	{
-		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
-	},
-	{
-		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
-	},
-	{
-		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
-	},
-	{
-		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
-	},
-	{
-		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
-	},
-	{
-		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
-	},
-	{
-		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
-	},
-	{
-		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
-	},
-	{
-		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
-	},
-	{
-		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
-	},
-	{
-		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
-	},
-	{
-		id: 2,
-		nome: 'Coca-cola',
-		descriçao: 'Refrigerante em lata.',
-	},
-	{
-		id: 3,
-		nome: 'Pudim',
-		descriçao: 'Pudim de leite condensado.',
-	},
-	{
-		id: 1,
-		nome: 'Cachorro-quente',
-		descriçao: 'Lanche grande.',
+		nome: 'Yahiko',
+		descriçao: ' shinobi de Amegakure ',
 	},
 ]
 const styles = StyleSheet.create({
 	listItem: {
-		backgroundColor: '#ff0',
+		backgroundColor: '#000000',
 		padding: 20,
 		marginBottom: 20,
 	},
 
 	listItemText: {
 		fontSize: 24,
+		color:'#FF0000'
 	},
 
 	botao:{
@@ -164,10 +91,10 @@ const styles = StyleSheet.create({
 type Props = NativeStackScreenProps<StackParams,'TelaPricipal'>;
 
 const TelaPricipalScreen: React.FC <Props> = (Props) => {
-	 	const botaoLoginPressionado = () => {
-		Props.navigation.navigate('PaginaItem');
-	}
 		const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
+			const botaoLoginPressionado = () => {
+				Props.navigation.navigate('PaginaItem', {item: item});
+			}
 			return (
 			<TouchableOpacity style={styles.listItem} onPress={botaoLoginPressionado}>
 				<Text style={styles.listItemText}>{item.nome}</Text>

@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from "react"
 import PaginaItem from "./item";
 import LoginScreen from "./Login";
+import Item from "./models/Item";
 import PerfilScreen from './Perfil';
 import TelaPricipalScreen from "./TelaPricipal";
 
@@ -24,8 +25,7 @@ type StackParams = {
     Perfil: undefined,
     Login: undefined,
     TelaPricipal:undefined,
-    PaginaItem: undefined,
-
+    PaginaItem: {item: Item},
 };
 
 

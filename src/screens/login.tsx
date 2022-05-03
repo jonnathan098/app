@@ -62,6 +62,9 @@ const botaoLoginPressionado = () => {
         setMansagemDeerror(true)
     }
 }
+const botaoLoginPressionado01 = () => {
+    props.navigation.navigate('Perfil');
+}
 
 return(  
     <View style={styles.container}>
@@ -84,7 +87,7 @@ return(
        <Text style={styles.buttonText}>entrar</Text>
       </TouchableOpacity>
 
-       <TouchableOpacity style={styles.linkNovoUsuario}onPress={() => {}}>
+       <TouchableOpacity style={styles.linkNovoUsuario}onPress={botaoLoginPressionado01}>
        <Text style={styles.buttonTextLinkeNovoUsuario}>novo usuario</Text>
       </TouchableOpacity>
     </View>
