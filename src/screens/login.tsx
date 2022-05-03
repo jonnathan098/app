@@ -1,3 +1,4 @@
+import { StackActions } from "@react-navigation/native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import React, { useState } from "react" 
 import { TextInput, View,StyleSheet, Button, TouchableOpacity,Text, } from "react-native"
@@ -57,7 +58,7 @@ const botaoLoginPressionado = () => {
     if (nomeUsuario==='adm' && senha === '123') {
         setMansagemDesucesso(true)
         setMansagemDeerror(false)
-        props.navigation.navigate('Perfil');
+        props.navigation.dispatch(StackActions.replace('Perfil'));
     } else {
         setMansagemDeerror(true)
     }

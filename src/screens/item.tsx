@@ -55,9 +55,11 @@ const style = StyleSheet.create ({
 type Props = NativeStackScreenProps<StackParams,'PaginaItem'>;
 const PaginaItem: React.FC <Props> = (props) =>{
     const item = props.route.params.item;
+    const item01 = props.route.params.item
     return(
         <View style={style.pagina}>
             <Text>{item.descriçao}</Text> 
+
         </View>
     );
 };

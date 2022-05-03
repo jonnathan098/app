@@ -66,6 +66,7 @@ const itens: Item[] = [
 		nome: 'Yahiko',
 		descriçao: ' shinobi de Amegakure ',
 	},
+
 ]
 const styles = StyleSheet.create({
 	listItem: {
