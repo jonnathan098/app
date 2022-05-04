@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native';
+import  image from '../../assets/thumb-1920-604626.png';
 import item from './item';
 import Item from './models/Item';
 import { StackParams } from './Navegacao';
@@ -54,17 +55,17 @@ const itens: Item[] = [
 	{
 		id: 2,
 		nome: 'Konan',
-		descriçao: ' kunoichi de Amegakure',
+		descriçao: 'kunoichi de Amegakure',
 	},
 	{
 		id: 3,
 		nome: 'Orochimaru',
-		descriçao: ' Lendários Sannin,',
+		descriçao: 'Lendários Sannin,',
 	},
 	{
 		id: 1,
 		nome: 'Yahiko',
-		descriçao: ' shinobi de Amegakure ',
+		descriçao: 'shinobi de Amegakure ',
 	},
 
 ]
@@ -73,21 +74,30 @@ const styles = StyleSheet.create({
 		backgroundColor: '#000000',
 		padding: 20,
 		marginBottom: 20,
+	
 	},
-
 	listItemText: {
+		alignItems: 'center',	
 		fontSize: 24,
-		color:'#FF0000'
+		color:'#FF0000',
 	},
-
 	botao:{
 		fontSize : 24,
         borderWidth:1,
         backgroundColor: '#2E8B57',
         borderRadius:8,
+		alignItems: 'center',	
+	},
+	aliamendo:{
+		alignItems: 'flex-end',	
+	},
+	aliamendo01:{
 		alignItems: 'center',
-
-	}
+	},
+	image: {
+		width:100,
+		height:55,
+	},
 })
 type Props = NativeStackScreenProps<StackParams,'TelaPricipal'>;
 
@@ -98,7 +108,13 @@ const TelaPricipalScreen: React.FC <Props> = (Props) => {
 			}
 			return (
 			<TouchableOpacity style={styles.listItem} onPress={botaoLoginPressionado}>
-				<Text style={styles.listItemText}>{item.nome}</Text>
+		    	<View style={styles.aliamendo}>
+					<Image style={styles.image} source={image}/>
+		    	</View>	
+				<Image style={styles.image} source={image}/>
+				<View style={styles.aliamendo01}>
+					<Text style={styles.listItemText}>{item.nome}</Text>
+				</View>
 			</TouchableOpacity>
 		)
 		}

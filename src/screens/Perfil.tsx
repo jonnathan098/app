@@ -34,27 +34,23 @@ const style = StyleSheet.create({
       justifyContent:'flex-start',
       backgroundColor:'#fff'
     },
-    button:{
-      alignSelf:'center',
-    },
-    
   })
-  type Props = NativeStackScreenProps<StackParams,'Perfil'>;
-const perfilScreen: React.FC <Props> = (Props) => {
+type Props = NativeStackScreenProps<StackParams,'Perfil'>;
+  const perfilScreen: React.FC <Props> = (Props) => {
    const botaoPressionado = () =>{
     Props.navigation.navigate('TelaPricipal');
   }
     return(
-     <View style={style.container}>
-       <View style={style.perfil}>
-      <Image style={style.image} source={image}/>
-      <View>
-        <Text style={style.mensagem}>bem vindo!</Text>
-        <Text>tudo bem !</Text>
+      <View style={style.container}>
+        <View style={style.perfil}>
+          <Image style={style.image} source={image}/>
+        <View>
+          <Text style={style.mensagem}>bem vindo!</Text>
+          <Text>tudo bem !</Text>
+        </View>
+        </View>
+          <Button title='supera' onPress={botaoPressionado} />
       </View>
-      </View>
-      <Button title='supera' style={style.button} onPress={botaoPressionado} />
-    </View>
     )
 }
 export default perfilScreen
