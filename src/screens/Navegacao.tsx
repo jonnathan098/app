@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from "react"
+import EdidarItem from "./EdidarItem";
 import PaginaItem from "./item";
 import LoginScreen from "./Login";
 import Item from "./models/Item";
@@ -16,6 +17,8 @@ const Navegacao: React.FC =() => {
           <Stack.Screen name="Perfil" component={PerfilScreen} />
           <Stack.Screen name="TelaPricipal" component={TelaPricipalScreen} />
           <Stack.Screen name="PaginaItem" component={PaginaItem} />
+          <Stack.Screen name="EdidarItem" component={EdidarItem} />
+
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -26,6 +29,7 @@ type StackParams = {
     Login: undefined,
     TelaPricipal:undefined,
     PaginaItem: {item: Item},
+    EdidarItem:undefined,
 };
 
 

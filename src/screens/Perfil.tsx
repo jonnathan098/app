@@ -9,10 +9,7 @@ const style = StyleSheet.create({
     container: {
       flexGrow:1,
       backgroundColor: '#bb0',
-     // justifyContent: 'center',
-     // alignItems: 'center',
-
-  
+     alignItems:'center',
     },
     
     mensagem: {
@@ -28,28 +25,19 @@ const style = StyleSheet.create({
       alignItems: 'flex-start',
       
     },
-    perfil:{
-      flexDirection:'row',
-      alignItems:'center',
-      justifyContent:'flex-start',
-      backgroundColor:'#fff'
-    },
+   
   })
-type Props = NativeStackScreenProps<StackParams,'Perfil'>;
-  const perfilScreen: React.FC <Props> = (Props) => {
+  type Props = NativeStackScreenProps<StackParams,'Perfil'>;
+const perfilScreen: React.FC <Props> = (Props) => {
    const botaoPressionado = () =>{
     Props.navigation.navigate('TelaPricipal');
   }
     return(
       <View style={style.container}>
-        <View style={style.perfil}>
-          <Image style={style.image} source={image}/>
-        <View>
-          <Text style={style.mensagem}>bem vindo!</Text>
-          <Text>tudo bem !</Text>
-        </View>
-        </View>
-          <Button title='supera' onPress={botaoPressionado} />
+        <Image style={style.image} source={image}/>
+        <Text style={style.mensagem}>bem vindo!</Text>
+        <Text>tudo bem !</Text>
+        <Button title='supera' onPress={botaoPressionado} />
       </View>
     )
 }

@@ -39,7 +39,7 @@ const style = StyleSheet.create ({
         marginTop:30,
     },
     buttonEdidar:{
-        backgroundColor: '#000000',
+        backgroundColor:'#000000',
         alignItems:'center',
         color:'#FF0000',
         borderWidth:1,
@@ -51,13 +51,22 @@ const style = StyleSheet.create ({
         fontSize : 15,
 
     },
+    ItemEdidar:{
+            fontSize : 15,
+            borderWidth:1,
+          backgroundColor: '#F5FFFA',
+    },
 })
 type Props = NativeStackScreenProps<StackParams,'PaginaItem'>;
 const PaginaItem: React.FC <Props> = (props) =>{
+    const botaoLoginPressionado01 = () => {
+        props.navigation.navigate('EdidarItem');
+    }
     const item = props.route.params.item;
     return(
         <View style={style.pagina}>
-            <Text>{item.descriçao}</Text> 
+            <Text>{item.descriçao}</Text>
+            <Button title="editar" onPress={botaoLoginPressionado01}/>
         </View>
     );
 };

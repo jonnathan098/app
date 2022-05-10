@@ -79,15 +79,11 @@ return(
          <Text style={styles.MansagemDesucesso}>suceso: Bem Vindo</Text>
          )
         }
-       
         <TextInput style={styles.Input}placeholder="nome do usuario" onChangeText={setnomeUsuario}/>
-
         <TextInput style={styles.Input}placeholder='senha'onChangeText={setsenha}/> 
-
         <TouchableOpacity style={styles.Button}onPress={botaoLoginPressionado }>
        <Text style={styles.buttonText}>entrar</Text>
       </TouchableOpacity>
-
        <TouchableOpacity style={styles.linkNovoUsuario}onPress={botaoLoginPressionado01}>
        <Text style={styles.buttonTextLinkeNovoUsuario}>novo usuario</Text>
       </TouchableOpacity>
