@@ -1,4 +1,4 @@
-import { TextInput, View, StyleSheet, Button} from "react-native";
+import { View , StyleSheet, Button, TextInput,Text} from "react-native"
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackParams } from "./Navegacao";
@@ -32,19 +32,19 @@ const style = StyleSheet.create ({
     },
 })
 type Props = NativeStackScreenProps<StackParams,'EdidarItem'>;
-const EdidarItem: React.FC <Props> = (Props) =>{
-    const botaoPressionado = () =>{
-        Props.navigation.navigate('TelaPricipal');
-      }
-   
+const EdidarItem: React.FC <Props> = (props) =>{
+    const botaoLoginPressionado01 = () => {
+        props.navigation.navigate('PaginaItem',{item: item} );
+    }
+    const item = props.route.params.item;
     return(
         <View style={style.pagina}>
-            <View style={style.edidarItem}>
-                <TextInput style={style.ItemEdidarNome} placeholder='NOME'onChangeText={() => {}}/>
-                <TextInput style={style.ItemEdidarDescriçao} placeholder='DESCRIÇAO'onChangeText={() => {}}/>
-            </View>
-            <Button title='SALVAR'onPress={() => {}}/>
-            <Button title="voltar" onPress={ botaoPressionado}/>
+           <View style={style.edidarItem}>
+                <TextInput style={style.ItemEdidarNome} placeholder={item.nome} onChangeText={() => {}}/>
+                <TextInput style={style.ItemEdidarDescriçao} placeholder={item.descriçao}onChangeText={() => {}}/>
+                <Button title='SALVAR'onPress={() => {}}/>
+                <Button title="voltar" onPress={botaoLoginPressionado01}/>  
+          </View>
         </View>
     )
 };

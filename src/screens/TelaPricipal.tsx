@@ -106,6 +106,7 @@ const TelaPricipalScreen: React.FC <Props> = (Props) => {
 			const botaoLoginPressionado = () => {
 				Props.navigation.navigate('PaginaItem', {item: item});
 			}
+			
 			return (
 			<TouchableOpacity style={styles.listItem} onPress={botaoLoginPressionado}>
 		    	<View style={styles.aliamendo}>
@@ -118,13 +119,14 @@ const TelaPricipalScreen: React.FC <Props> = (Props) => {
 			</TouchableOpacity>
 		)
 		}
+		const botaoLoginPressionado02 = () => {
+			Props.navigation.navigate('CriaItem');
+		}
 	return (
 		<View>
 			<FlatList renderItem={renderFlatListItem} data={itens}/>
 			<View>
-				<TouchableOpacity style={styles.botao} onPress={() => {}}>
-				<Text>cria novo componede</Text>
-				</TouchableOpacity>
+				<Button title='criar novo item' onPress={botaoLoginPressionado02} />
 	        </View>
 		</View>
 	)

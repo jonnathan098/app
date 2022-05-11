@@ -60,7 +60,7 @@ const style = StyleSheet.create ({
 type Props = NativeStackScreenProps<StackParams,'PaginaItem'>;
 const PaginaItem: React.FC <Props> = (props) =>{
     const botaoLoginPressionado01 = () => {
-        props.navigation.navigate('EdidarItem');
+        props.navigation.navigate('EdidarItem', {item: item});
     }
     const item = props.route.params.item;
     return(
