@@ -1,5 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native';
 import  image from '../../assets/thumb-1920-604626.png';
 import item from './item';
@@ -102,6 +103,16 @@ const styles = StyleSheet.create({
 type Props = NativeStackScreenProps<StackParams,'TelaPricipal'>;
 
 const TelaPricipalScreen: React.FC <Props> = (Props) => {
+
+	const [Data, setDada] = useState<Item[]>([]);
+
+useEffect (() => {
+	axios.get<Item[]>('http://localhost:4000/api/itens')
+	.then((res) => {
+		setDada(res.data)
+	});
+});
+
 		const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
 			const botaoLoginPressionado = () => {
 				Props.navigation.navigate('PaginaItem', {item: item});

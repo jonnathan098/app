@@ -7,8 +7,6 @@ import TelaPricipalScreen from './src/screens/TelaPricipal';
 const app: React.FC = () => {
   return(
  <Navegacao/>
-
- // <CriaItem/>
   );
 };
 export default app;
