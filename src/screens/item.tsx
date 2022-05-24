@@ -1,72 +1,81 @@
 import { View , Text, StyleSheet,Image, Button, Alert, TextInput, TouchableOpacity } from "react-native"
-import React from "react";
+import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackParams } from "./Navegacao";
+import axios from "axios";
+import { StackActions } from "@react-navigation/native";
 
 const style = StyleSheet.create ({
     pagina:{
         flexGrow:1,
-        backgroundColor: '#4169E1',
+        backgroundColor: '#363636',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    Input:{
-        fontSize : 24,
-        borderWidth:1,
-        backgroundColor: '#F5FFFA',
-        width:300,
-        height:100,
-        
-    },
-    item1:{
+    botaomExculir:{
         fontSize: 24,
+        width:'100%',
+        height:'50%',
         borderWidth:1,
-        backgroundColor: '#B0C4DE',
-        borderRadius:8,
-    },
-    descriçaoDoItem1:{
-        alignItems: 'center',
-        borderWidth:1,
-        backgroundColor: '#B0C4DE',
-        fontSize : 24,
-        borderRadius:8,
-
-    },
-    imagemItem:{ 
-        width:300,
-        height:500,
-        borderRadius:200,
-        marginTop:30,
+        backgroundColor: '#FF0000',
     },
     buttonEdidar:{
         backgroundColor:'#000000',
         alignItems:'center',
         color:'#FF0000',
         borderWidth:1,
-        width:90,
-        height:25,
+        width:'100%',
+        height:'50%',
+        
     },
     TextButton:{
-        color:'#4682B4',
+        color:'#F0F8FF',
         fontSize : 15,
-
     },
-    ItemEdidar:{
-            fontSize : 15,
-            borderWidth:1,
-          backgroundColor: '#F5FFFA',
+    container:{
+        borderWidth:1,
+        backgroundColor: '#F5FFFA',
+        width:90,
+        height:100,
+        borderRadius:8,
     },
+   
 })
 type Props = NativeStackScreenProps<StackParams,'PaginaItem'>;
 const PaginaItem: React.FC <Props> = (props) =>{
+    const item = props.route.params.item;
+
+    const [loading, setLoading] = useState(false);
+
     const botaoLoginPressionado01 = () => {
         props.navigation.navigate('EdidarItem', {item: item});
     }
-    const item = props.route.params.item;
+
+    const botaoRemoverPressionado = () => {
+		setLoading(true);
+		axios.delete(`http://localhost:4000/api/itens/${item.id}`)
+		.then(() => {
+			setLoading(false);
+			props.navigation.pop(1);
+			props.navigation.dispatch(StackActions.replace('Home'));
+		})
+		.catch(error => {
+			alert(error.message);
+			setLoading(false);
+		});
+		
+	};
     return(
         <View style={style.pagina}>
-            <Text>{item.descricao}</Text>
-            <Button title="editar" onPress={botaoLoginPressionado01}/>
+        <Text>{item.descricao}</Text>
+            <View style={style.container}>
+             <TouchableOpacity style={style.buttonEdidar}onPress={botaoLoginPressionado01}>
+                 <Text style={style.TextButton}>novo usuario</Text>
+             </TouchableOpacity>
+             <TouchableOpacity style={style.botaomExculir}onPress={botaoRemoverPressionado}>
+                 <Text style={style.TextButton}>exculir ⌦</Text>
+             </TouchableOpacity>
+             </View>
         </View>
     );
 };
