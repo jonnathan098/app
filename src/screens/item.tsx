@@ -65,7 +65,7 @@ const PaginaItem: React.FC <Props> = (props) =>{
     const item = props.route.params.item;
     return(
         <View style={style.pagina}>
-            <Text>{item.descriçao}</Text>
+            <Text>{item.descricao}</Text>
             <Button title="editar" onPress={botaoLoginPressionado01}/>
         </View>
     );

@@ -1,75 +1,13 @@
+import { useFocusEffect } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native';
 import  image from '../../assets/thumb-1920-604626.png';
-import item from './item';
 import Item from './models/Item';
 import { StackParams } from './Navegacao';
 
-const itens: Item[] = [
-	{
-		id: 2,
-		nome: 'Itachi Uchiha',
-		descriçao: 'clã Uchiha de Konoha',
-	},
-	{
-		id: 3,
-		nome: 'Nagato',
-		descriçao: 'um órfão de Amegakure',
-	},
-	{
-		id: 1,
-		nome: 'Deidara',
-		descriçao: 'Unidade de Explosão',
-	},
-	{
-		id: 2,
-		nome: 'Obito Uchiha',
-		descriçao: ' clã Uchiha de Konoha.',
-	},
-	{
-		id: 3,
-		nome: 'Hidan',
-		descriçao: 'Yugakure',
-	},
-	{
-		id: 1,
-		nome: 'Zetsu',
-		descriçao: 'Exército de Zetsu Branco,',
-	},
-	{
-		id: 2,
-		nome: 'Kisame Hoshigaki',
-		descriçao: 'Monstro da Névoa Oculta ',
-	},
-	{
-		id: 3,
-		nome: 'Kakuzu',
-		descriçao: ' Takigakure',
-	},
-	{
-		id: 1,
-		nome: 'Sasori',
-		descriçao: 'era um shinobi de Sunagakure ',
-	},
-	{
-		id: 2,
-		nome: 'Konan',
-		descriçao: 'kunoichi de Amegakure',
-	},
-	{
-		id: 3,
-		nome: 'Orochimaru',
-		descriçao: 'Lendários Sannin,',
-	},
-	{
-		id: 1,
-		nome: 'Yahiko',
-		descriçao: 'shinobi de Amegakure ',
-	},
 
-]
 const styles = StyleSheet.create({
 	listItem: {
 		backgroundColor: '#000000',
@@ -104,14 +42,21 @@ type Props = NativeStackScreenProps<StackParams,'TelaPricipal'>;
 
 const TelaPricipalScreen: React.FC <Props> = (Props) => {
 
-	const [Data, setDada] = useState<Item[]>([]);
-
-useEffect (() => {
-	axios.get<Item[]>('http://localhost:4000/api/itens')
-	.then((res) => {
-		setDada(res.data)
-	});
-});
+	 const [loading, setLoading] = useState(false);
+ 	 const [data, setData] = useState<Item[]>([]);
+	  
+  useFocusEffect(useCallback(() => {
+		setLoading(true);
+    axios.get<Item[]>('http://localhost:4000/api/itens')
+    .then((res) => {
+      setData(res.data);
+			setLoading(false);
+    })
+    .catch((error) => {
+      console.log(error);
+			setLoading(false);
+    });
+  }, []));
 
 		const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
 			const botaoLoginPressionado = () => {
@@ -135,7 +80,7 @@ useEffect (() => {
 		}
 	return (
 		<View>
-			<FlatList renderItem={renderFlatListItem} data={itens}/>
+			<FlatList renderItem={renderFlatListItem} data={data}/>
 			<View>
 				<Button title='criar novo item' onPress={botaoLoginPressionado02} />
 	        </View>

@@ -1,7 +1,10 @@
 import { View,Text, TextInput,StyleSheet, Button } from "react-native"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackParams } from "./Navegacao";
+import axios from "axios";
+import ItemForm, { ItemFormSaveEventHandler } from "../components/ItemForm";
+import Loading from "../components/Loading";
 const style =  StyleSheet.create ({
     pagina:{
         flexGrow:1,
@@ -27,22 +30,29 @@ const style =  StyleSheet.create ({
 })
 type Props = NativeStackScreenProps<StackParams,'CriaItem'>;
 const CriaItem :  React.FC  <Props> = (props) => {
+
     const botaoLoginPressionado01 = () => {
         props.navigation.navigate( 'TelaPricipal');
     }
-    
-    return(
-        <View style={style.pagina}>
-            <View style={style.edidarItem}>
-                 <TextInput style={style.nome} placeholder='nome' onChangeText={() => {}}/>
-                 <TextInput style={style.nome} placeholder='descriçao' onChangeText={() => {}}/>
-            </View>
-            <View > 
-             <Button title="voltar" onPress={botaoLoginPressionado01 }/>
-            </View>
-        <Button title="salvar" onPress={() => {}}/>
+    const [loading, setLoading] = useState(false);
 
-        </View>
+	const itemFormSalvar: ItemFormSaveEventHandler = (item) => {
+		setLoading(true);
+		axios.post('http://localhost:4000/api/itens', item)
+		.then(() => {
+			setLoading(false);
+			props.navigation.navigate('TelaPricipal');
+		})
+		.catch((error) => {
+			setLoading(false);
+			alert(error.message);
+		});
+	};
+    return(
+        <View>
+        <ItemForm onSalvar={itemFormSalvar} />
+        <Loading show={loading} />
+    </View>
     )
 };
 export default CriaItem

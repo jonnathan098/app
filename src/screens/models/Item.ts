@@ -1,6 +1,6 @@
 type Item = {
-    id: number
+    id?: number
     nome: string
-    descriçao: string
+    descricao: string
 }
 export default Item

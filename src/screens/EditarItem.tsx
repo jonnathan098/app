@@ -1,7 +1,12 @@
-import { View , StyleSheet, Button, TextInput,Text} from "react-native"
-import React from "react";
+import { View , StyleSheet, Button, TextInput,Text, TouchableOpacity} from "react-native"
+import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackParams } from "./Navegacao";
+import Item from "./models/Item";
+import { StackActions } from "@react-navigation/native";
+import axios from "axios";
+import ItemForm from "../components/ItemForm";
+import Loading from "../components/Loading";
 
 
 const style = StyleSheet.create ({
@@ -21,7 +26,7 @@ const style = StyleSheet.create ({
         fontSize : 15,
         height:'50%' ,
          borderWidth:1,
-        color:'#F0F8FF',
+       
     },
     edidarItem:{
      borderWidth:1,
@@ -32,20 +37,31 @@ const style = StyleSheet.create ({
     },
 })
 type Props = NativeStackScreenProps<StackParams,'EdidarItem'>;
+
 const EdidarItem: React.FC <Props> = (props) =>{
-    const botaoLoginPressionado01 = () => {
-        props.navigation.navigate('PaginaItem',{item: item} );
-    }
-    const item = props.route.params.item;
-    return(
-        <View style={style.pagina}>
-           <View style={style.edidarItem}>
-                <TextInput style={style.ItemEdidarNome} placeholder={item.nome} onChangeText={() => {}}/>
-                <TextInput style={style.ItemEdidarDescriçao} placeholder={item.descriçao}onChangeText={() => {}}/>
-                <Button title='SALVAR'onPress={() => {}}/>
-                <Button title="voltar" onPress={botaoLoginPressionado01}/>  
-          </View>
-        </View>
-    )
+  const [loading, setLoading] = useState(false);
+	const item = props.route.params.item;
+
+	const itemFormSalvar = (item: Item) => {
+		setLoading(true);
+		axios.put(`http://localhost:4000/api/itens/${item.id}`, item)
+		.then(() => {
+			props.navigation.pop(1);
+			props.navigation.dispatch(StackActions.replace('Item', {item}));
+			setLoading(false);
+		})
+		.catch((error) => {
+			alert(error.message);
+			setLoading(false);
+		});
+		
+	};
+
+	return (
+		<View>
+			<ItemForm item={item} onSalvar={itemFormSalvar} />
+			<Loading show={loading} />
+		</View>
+	);
 };
 export default EdidarItem
