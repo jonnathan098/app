@@ -1,9 +1,9 @@
 import React from 'react';
-import CriaItem from './src/screens/CriaItem';
-import EdidarItem from './src/screens/EditarItem';
-import PaginaItem from './src/screens/item';
-import Navegacao from './src/screens/Navegacao';
-import TelaPricipalScreen from './src/screens/TelaPricipal';
+import CriaItem from './src/Telas/CriaItem';
+import EdidarItem from './src/Telas/EditarItem';
+import PaginaItem from './src/Telas/item';
+import Navegacao from './src/Telas/Navegacao';
+import TelaPricipalScreen from './src/Telas/TelaPricipal';
 const app: React.FC = () => {
   return(
  <Navegacao/>

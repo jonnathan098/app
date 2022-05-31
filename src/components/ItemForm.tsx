@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Item from '../screens/models/Item'
+import Item from '../Telas/models/Item'
 import { StyleSheet } from 'react-native';
 
 
