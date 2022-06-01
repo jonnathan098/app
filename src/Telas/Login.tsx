@@ -84,7 +84,7 @@ return(
         <TouchableOpacity style={styles.Button}onPress={botaoLoginPressionado }>
        <Text style={styles.buttonText}>entrar</Text>
       </TouchableOpacity>
-       <TouchableOpacity style={styles.linkNovoUsuario}onPress={botaoLoginPressionado01}>
+       <TouchableOpacity style={styles.linkNovoUsuario}onPress={() => {}}>
        <Text style={styles.buttonTextLinkeNovoUsuario}>novo usuario</Text>
       </TouchableOpacity>
     </View>
