@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image, Alert, ListRenderItem, FlatList, TextInput} from 'react-native';
-import  image from '../../assets/download.jfif.png';
+import { StyleSheet, Text, View,Image, Alert, ListRenderItem, FlatList, TextInput, TouchableOpacity} from 'react-native';
+import  image from '../../assets/iconpessoas.png';
 import imagen from '../../assets/04c8125b2519673573d53e5f9c5a4b47.jpg';
 import { Button } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -48,21 +48,20 @@ const style = StyleSheet.create({
   },
    
   })
-
-  const item: Item [] = [ 
+  const item: Item [] = [
     {
       id: 1,
-      nome: 'ola',
+      nome: 'x-tudo chedar',
       descricao: 'oi'
    },
   {
     id: 2,
-    nome: 'tudo',
+    nome: 'pizza de queijo',
     descricao: 'oi'
   },
   {
     id: 3,
-    nome: 'bem',
+    nome: 'coxinha',
     descricao: 'oi'
   },
   ];
@@ -70,22 +69,25 @@ const style = StyleSheet.create({
   type Props = NativeStackScreenProps<StackParams,'Perfil'>; 
 const perfilScreen: React.FC <Props> = (Props) => { 
    const botaoPressionado = () =>{
-    Props.navigation.navigate('TelaPricipal');
-  }
+    Props.navigation.navigate('TelaPricipal');}
+    const botaocontadoPressionado = () => {}
 
   const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
     
     return (
     < View >
-        <Text style={style.mensagem}>{item.nome}</Text>
+      <Text style={style.mensagem}>{item.nome}</Text>
     </View>
   )
   }
 
     return(
       <View style={style.container}>
+        <TouchableOpacity onPress={botaocontadoPressionado}> 
+          <Text>contado</Text>
+        </TouchableOpacity>
         <Image style={style.image} source={image}/>
-        <TextInput style={style.mensagem}/>
+        <Text style={style.mensagem}>nome</Text>
         <Text style={style.mensagem}>cpf</Text>
         <Text style={style.mensagem}>telefone</Text>
         <Text style={style.mensagem}>emdereco</Text>

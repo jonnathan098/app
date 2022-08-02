@@ -7,9 +7,8 @@ import Navegacao from './src/Telas/Navegacao';
 import TelaPricipalScreen from './src/Telas/TelaPricipal';
 const app: React.FC = () => {
   return(
- //<Navegacao/>
- <Cadrastro/>
-  
+ <Navegacao/>
+ 
   );
 };
 export default app;

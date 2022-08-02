@@ -64,7 +64,7 @@ const botaoLoginPressionado = () => {
     }
 }
 const botaoLoginPressionado01 = () => {
-    props.navigation.navigate('Perfil');
+    props.navigation.dispatch(StackActions.replace('Cadrastro'))
 }
 
 return(  
@@ -84,7 +84,7 @@ return(
         <TouchableOpacity style={styles.Button}onPress={botaoLoginPressionado }>
        <Text style={styles.buttonText}>entrar</Text>
       </TouchableOpacity>
-       <TouchableOpacity style={styles.linkNovoUsuario}onPress={() => {}}>
+       <TouchableOpacity style={styles.linkNovoUsuario}onPress={botaoLoginPressionado01}>
        <Text style={styles.buttonTextLinkeNovoUsuario}>novo usuario</Text>
       </TouchableOpacity>
     </View>

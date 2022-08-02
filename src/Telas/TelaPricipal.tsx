@@ -3,16 +3,17 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Button, FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native';
-import  image from '../../assets/thumb-1920-604626.png';
+import  image from '../../assets/4483612.png';
 import Item from './models/Item';
 import { StackParams } from './Navegacao';
 
 
 const styles = StyleSheet.create({
 	listItem: {
-		backgroundColor: '#000000',
 		padding: 20,
 		marginBottom: 20,
+		borderWidth:1,
+		color:'#006400',
 	
 	},
 	listItemText: {
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	image: {
-		width:100,
+		width:90,
 		height:55,
 	},
 })
