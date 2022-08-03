@@ -70,7 +70,8 @@ const style = StyleSheet.create({
 const perfilScreen: React.FC <Props> = (Props) => { 
    const botaoPressionado = () =>{
     Props.navigation.navigate('TelaPricipal');}
-    const botaocontadoPressionado = () => {}
+    const botaocontadoPressionado = () => { 
+      Props.navigation.navigate('Contado');}
 
   const renderFlatListItem: ListRenderItem<Item> = ({item}) => {
     

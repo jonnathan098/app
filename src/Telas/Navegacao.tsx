@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from "react"
 import Cadrastro from "./Cadrastro";
+import Contado from "./contado";
 import CriaItem from "./CriaItem";
 import EdidarItem from "./EditarItem";
 import PaginaItem from "./item";
@@ -22,6 +23,8 @@ const Navegacao: React.FC =() => {
           <Stack.Screen name="EdidarItem" component={EdidarItem} />
           <Stack.Screen name="CriaItem" component={CriaItem} />
           <Stack.Screen name="Cadrastro" component={Cadrastro} />
+          <Stack.Screen name="Contado" component={Contado} />
+
 
         </Stack.Navigator>
       </NavigationContainer>
@@ -36,6 +39,7 @@ type StackParams = {
     EdidarItem:{item: Item},
     CriaItem:undefined,
     Cadrastro:undefined,
+    Contado:undefined,
 };
 
 
